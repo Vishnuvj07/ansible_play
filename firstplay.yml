@@ -1,0 +1,25 @@
+---
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local
+    gather_facts: True
+    tasks:
+      - name: Block Rescue test
+        block:
+          - name: "just execute a ls -lrt command"
+            shell: "ls -lrt /home/alpa"
+            register: "output"
+          - debug: var=output.stdout_lines
+       
+        rescue:    
+          - include_tasks: /home/alpha/ansible_plays/ansible_api_test.yml
+          - name : api test
+            #meta: end_play
+            debug:
+              msg: "Rescue block run"
+        always:
+          - name: "Always run"
+            set_fact:
+               end_msg: "End of Play!!!!!!!!!!!"
+          - debug:
+              msg: "{{ end_msg }}"
