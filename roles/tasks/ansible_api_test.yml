@@ -1,0 +1,10 @@
+---
+    - name: Simple GET Call
+      uri:
+        url: "https://api.covid19tracker.in/data/static/data.min.json"
+        headers:
+          Content-Type: "application/json"
+        method: GET
+      register: response
+    - debug:
+        var: response.json.TN.districts.Coimbatore.delta.vaccinated1                      

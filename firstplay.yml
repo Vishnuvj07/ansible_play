@@ -12,7 +12,7 @@
           - debug: var=output.stdout_lines
        
         rescue:    
-          - include_tasks: /home/alpha/ansible_plays/ansible_api_test.yml
+          - include_tasks: roles/tasks/ansible_api_test.yml
           - name : api test
             #meta: end_play
             debug:
