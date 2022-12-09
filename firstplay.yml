@@ -22,4 +22,4 @@
             set_fact:
                end_msg: "End of Play!!!!!!!!!!!"
           - debug:
-              msg: "{{ end_msg }}"
+              msg: "{{ end_msg | ans_filter }}"
